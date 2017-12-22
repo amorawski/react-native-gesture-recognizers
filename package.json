@@ -31,5 +31,8 @@
   },
   "peerDependencies": {
     "prop-types": "^15.5.10"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
