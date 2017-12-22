@@ -1,6 +1,6 @@
 'use strict';
-
-import React, {Component, PropTypes} from 'react';
+import PropTypes from 'prop-types';
+import React, {Component} from 'react';
 import { View, PanResponder, Animated } from 'react-native';
 
 const initialState = {
@@ -15,7 +15,7 @@ const propTypes = {
   onPan: PropTypes.func,
   onPanEnd: PropTypes.func,
   resetPan: PropTypes.bool,
-  panDecoratorStyle: PropTypes.object
+  panDecoratorStyle: PropTypes.any
 };
 
 export default ({
@@ -111,10 +111,10 @@ export default ({
         ...props
       } = this.props;
 
-      const style = {
-        ...panDecoratorStyle,
-        alignSelf: 'flex-start'
-      };
+      const style = [
+        panDecoratorStyle,
+        {alignSelf: 'flex-start'}
+      ];
 
       return (
         <Animated.View {...this.panResponder.panHandlers} style={style}>

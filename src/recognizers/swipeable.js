@@ -1,6 +1,6 @@
 'use strict';
-
-import React, {Component, PropTypes} from 'react';
+import PropTypes from 'prop-types';
+import React, {Component} from 'react';
 import { View, PanResponder, Animated } from 'react-native';
 import isValidSwipe from '../utils/isValidSwipe';
 
@@ -15,7 +15,7 @@ const propTypes = {
   onSwipeBegin: PropTypes.func,
   onSwipe: PropTypes.func,
   onSwipeEnd: PropTypes.func,
-  swipeDecoratorStyle: PropTypes.object
+  swipeDecoratorStyle: PropTypes.any
 };
 
 const swipeable = ({
@@ -167,10 +167,10 @@ const swipeable = ({
         ...props
       } = this.props;
 
-      const style = {
-        ...swipeDecoratorStyle,
-        alignSelf: 'flex-start'
-      };
+      const style = [
+        swipeDecoratorStyle,
+        {alignSelf: 'flex-start'}
+      ];
 
       const state = setGestureState ? this.state : null;
 
